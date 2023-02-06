@@ -4,10 +4,6 @@ public class SwingMotion : MonoBehaviour
 {
     [SerializeField]
     private int anchorLayer;
-    [SerializeField]
-    private bool sizeAccordingToScreen;
-    [SerializeField]
-    private int cellHeight;
 
     //Toujours pratique
     private Camera mainCamera;
@@ -80,14 +76,6 @@ public class SwingMotion : MonoBehaviour
         //La taille d'un de nos pixels dans le monde de la scene
         pixelSize = .5f /
             spriteChildren[0].GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
-
-        if (sizeAccordingToScreen) 
-        {
-            Debug.Log((cellHeight - 5f) / (mainCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f,
-            Screen.height / 3f, mainCamera.nearClipPlane + offsetScalar)).y -
-            mainCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f,
-            0f, mainCamera.nearClipPlane + offsetScalar)).y));
-        }
     }
 
     private void GatherInputs()
